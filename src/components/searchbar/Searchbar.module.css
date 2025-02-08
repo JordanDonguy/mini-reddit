@@ -1,0 +1,39 @@
+.search {
+    width: 240px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #838383;
+    border: none;
+}
+
+.button {
+    background-image: url('../../data/searchbar-logo.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    z-index: 3;
+    top: 15px;
+    right: 300px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    border-radius: 30px;
+}
+
+input {
+    padding-left: 60px;
+    font-size: 1.25rem;
+}
+
+input::placeholder {
+    color: black;
+    opacity: 60%;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #bfbfbf;
+    transition: background-color .1s;
+}
