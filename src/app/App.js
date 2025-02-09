@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './App.module.css';
 import redditLogo from '../data/reddit-logo.png';
 import Searchbar from '../components/searchbar/Searchbar';
+import PostsList from '../components/postsList/PostsList';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
           <Searchbar />
         </div>
       </header>
+      <div>
+        <PostsList />
+      </div>
     </div>
   );
 }
