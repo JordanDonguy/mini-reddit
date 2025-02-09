@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './Post.module.css';
+import commentsLogo from '../../data/comments-logo.png';
 
 const Post = (props) => {
 const renderImg = () => {
   if (props.description) {
-    return <p>{props.description}</p>
+    return <p className={styles.description}>{props.description}</p>
   } else {
-    return <img src={props.url} alt='' />
+    return <img src={props.url} alt='' className={styles.description} />
   }
 }
 const renderVideo = () => {
@@ -22,10 +23,15 @@ const renderVideo = () => {
         <article key={props.id} className={styles.post}>
           <h3>{props.author}</h3>
           <h1>{props.title}</h1>
-          {/* <img className={styles.img} src={props.url} onerror={styles.img='none'} alt={props.url}/>
-          <p>{props.description}</p> */}
           {renderImg()}
           {renderVideo()}
+          <div className={styles.commentsUps}>
+          <span className={styles.ups}>▲ {props.ups} ▼</span>
+          <button className={styles.comments}>
+            <img src={commentsLogo} />
+            <span>{props.numComments}</span>
+          </button>
+          </div>
         </article>
     </div>
   )
