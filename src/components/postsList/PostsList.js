@@ -9,7 +9,6 @@ import loadingGIF from '../../data/Loading.gif';
 const PostsList = () => {
   const dispatch = useDispatch();
   const posts = useSelector(selectPosts);
-  console.log(posts);
   const isLoading = useSelector(isLoadingPosts);
   const failedToLoad = useSelector(failedToLoadPosts);
 
@@ -22,6 +21,7 @@ const PostsList = () => {
       return posts.map((post) => 
         <Post 
         id = {post.id}
+        key = {post.id}
         title = {post.title}
         subreddit={post.subreddit}
         author = {post.author}

@@ -30,7 +30,6 @@ const Post = (props) => {
 
   async function fetchComments() {
     const API_ROOT = 'https://www.reddit.com';
-    console.log(`${API_ROOT}${props.permalink}.json`);
     const response = await fetch(`${API_ROOT}${props.permalink}.json`);
     const json = await response.json();
 
@@ -41,8 +40,8 @@ const Post = (props) => {
     if (!toggleSwitch) {
       setToggleSwitch(true)
       fetchComments().then(function (result) {
-        setComment(result); 
-        console.log(result) })
+        setComment(result);
+      })
     } else {
       setToggleSwitch(false)
     }
@@ -50,21 +49,22 @@ const Post = (props) => {
 
   function renderComments() {
     if (!comment) {
-      return <div className={styles.loadingGifContainer}><img src={loadingGIF} className={styles.loadingGIF}/></div>
+      return <div className={styles.loadingGifContainer}><img src={loadingGIF} alt='loadingGIF' className={styles.loadingGIF} /></div>
     } else {
       return (
-      <div className={styles.comments}>
-        <h3>Comments :</h3>
-      {comment.map((com) => 
-        <Comment
-        body={com.body}
-        author={com.author}
-        id={com.id}
-        ups={com.ups}
-        utc={com.created_utc}
-        />
-      )}
-      </div>
+        <div className={styles.comments}>
+          <h3>Comments :</h3>
+          {comment.map((com) =>
+            <Comment
+              body={com.body}
+              author={com.author}
+              id={com.id}
+              key = {com.id}
+              ups={com.ups}
+              utc={com.created_utc}
+            />
+          )}
+        </div>
       )
     }
   }
