@@ -4,3 +4,15 @@
     padding-left: 20%;
     position: relative;
 }
+
+.loadingGifContainer {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    padding: 50px 0px;
+}
+
+.loadingGIF {
+    width: 250px;
+    height: 250px;
+}
