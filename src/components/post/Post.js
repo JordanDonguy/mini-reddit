@@ -4,9 +4,12 @@ import commentsLogo from '../../data/comments-logo.png';
 import { useDispatch, useSelector } from 'react-redux';
 import loadingGIF from '../../data/Loading.gif';
 import Comment from '../comment/Comment';
+import moment from 'moment';
 
 const Post = (props) => {
   const dispatch = useDispatch();
+  const timeAgo = moment.unix(props.utc).fromNow();
+
   const renderImg = () => {
     if (props.description) {
       return <p className={styles.description}>{props.description}</p>
@@ -58,7 +61,7 @@ const Post = (props) => {
         author={com.author}
         id={com.id}
         ups={com.ups}
-        utc={com.utc}
+        utc={com.created_utc}
         />
       )}
       </div>
@@ -70,7 +73,10 @@ const Post = (props) => {
     <div key={props.id}>
       <article key={props.id} className={styles.post}>
         <h4>r/{props.subreddit}</h4>
-        <h3>{props.author}</h3>
+        <div className={styles.author}>
+          <h3>{props.author}</h3>
+          <span>- {timeAgo}</span>
+        </div>
         <h1>{props.title}</h1>
         {renderImg()}
         {renderVideo()}

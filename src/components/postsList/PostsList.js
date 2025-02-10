@@ -32,6 +32,7 @@ const PostsList = () => {
         video= {post.media}
         isVideo={post.is_video}
         permalink={post.permalink}
+        utc={post.created_utc}
         />
         )
     } else if (isLoading && !failedToLoad) {
