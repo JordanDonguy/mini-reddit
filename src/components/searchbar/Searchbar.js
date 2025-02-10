@@ -11,9 +11,19 @@ const Searchbar = () => {
         setSearchTerm(e.currentTarget.value)
     }
 
-    function handleOnClick(e) {
-      dispatch(loadingPosts(searchTerm))
+    function handleOnClick() {
+      if (searchTerm) {
+        dispatch(loadingPosts(searchTerm))
+      } else {
+        dispatch(loadingPosts('popular'))
+      }
     }
+
+    function enter(event) {
+      if (event.key === "Enter") {
+        handleOnClick()
+      }
+    };
 
   return (
     <div className={styles.searchbar}>
@@ -23,6 +33,7 @@ const Searchbar = () => {
         value={searchTerm}
         className={styles.search}
         onChange={handleOnChange}
+        onKeyDown={enter}
         placeholder='Search...'
         />
     </div>
