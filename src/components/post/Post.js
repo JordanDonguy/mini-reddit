@@ -1,38 +1,88 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Post.module.css';
 import commentsLogo from '../../data/comments-logo.png';
+import { useDispatch, useSelector } from 'react-redux';
+import loadingGIF from '../../data/Loading.gif';
+import Comment from '../comment/Comment';
 
 const Post = (props) => {
-const renderImg = () => {
-  if (props.description) {
-    return <p className={styles.description}>{props.description}</p>
-  } else {
-    return <img src={props.url} alt='' className={styles.description} />
+  const dispatch = useDispatch();
+  const renderImg = () => {
+    if (props.description) {
+      return <p className={styles.description}>{props.description}</p>
+    } else {
+      return <img src={props.url} alt='' className={styles.description} />
+    }
   }
-}
-const renderVideo = () => {
-  if (props.isVideo) {
-    return <video controls className={styles.video} >
-      <source src={props.video.reddit_video.scrubber_media_url} type="video/mp4" />
-    </video>
+  const renderVideo = () => {
+    if (props.isVideo) {
+      return <video controls className={styles.video} >
+        <source src={props.video.reddit_video.scrubber_media_url} type="video/mp4" />
+      </video>
+    }
   }
-}
+
+  const [toggleSwitch, setToggleSwitch] = useState(false);
+  const [comment, setComment] = useState();
+
+  async function fetchComments() {
+    const API_ROOT = 'https://www.reddit.com';
+    console.log(`${API_ROOT}${props.permalink}.json`);
+    const response = await fetch(`${API_ROOT}${props.permalink}.json`);
+    const json = await response.json();
+
+    return json[1].data.children.map((comment) => comment.data);
+  }
+
+  function handleOnClick() {
+    if (!toggleSwitch) {
+      setToggleSwitch(true)
+      fetchComments().then(function (result) {
+        setComment(result); 
+        console.log(result) })
+    } else {
+      setToggleSwitch(false)
+    }
+  }
+
+  function renderComments() {
+    if (!comment) {
+      return <div className={styles.loadingGifContainer}><img src={loadingGIF} className={styles.loadingGIF}/></div>
+    } else {
+      return (
+      <div className={styles.comments}>
+        <h3>Comments :</h3>
+      {comment.map((com) => 
+        <Comment
+        body={com.body}
+        author={com.author}
+        id={com.id}
+        ups={com.ups}
+        utc={com.utc}
+        />
+      )}
+      </div>
+      )
+    }
+  }
 
   return (
     <div key={props.id}>
-        <article key={props.id} className={styles.post}>
-          <h3>{props.author}</h3>
-          <h1>{props.title}</h1>
-          {renderImg()}
-          {renderVideo()}
-          <div className={styles.commentsUps}>
+      <article key={props.id} className={styles.post}>
+        <h4>r/{props.subreddit}</h4>
+        <h3>{props.author}</h3>
+        <h1>{props.title}</h1>
+        {renderImg()}
+        {renderVideo()}
+        <div className={styles.commentsUps}>
           <span className={styles.ups}>▲ {props.ups} ▼</span>
-          <button className={styles.comments}>
+          <button className={styles.commentsButton} onClick={handleOnClick}>
             <img src={commentsLogo} />
             <span>{props.numComments}</span>
           </button>
-          </div>
-        </article>
+        </div>
+        {toggleSwitch && renderComments()}
+      </article>
     </div>
   )
 }

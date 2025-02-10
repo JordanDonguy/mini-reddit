@@ -1,0 +1,36 @@
+.comment {
+    margin: 20px 0px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+}
+
+.name {
+    opacity: 1;
+    color: white;
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+.comment p {
+    margin: 10px;
+    opacity: 0.8;
+    word-break: break-all;
+}
+
+.comment span {
+    opacity: 0.8;
+    margin: 10px ;
+}
