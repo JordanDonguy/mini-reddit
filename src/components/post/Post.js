@@ -39,7 +39,7 @@ const Post = (props) => {
   function handleOnClick() {
     if (!toggleSwitch) {
       setToggleSwitch(true)
-      fetchComments().then(function (result) {
+      fetchComments().then(function(result) {
         setComment(result);
       })
     } else {
@@ -62,6 +62,7 @@ const Post = (props) => {
               key = {com.id}
               ups={com.ups}
               utc={com.created_utc}
+              replies={com.replies}
             />
           )}
         </div>
@@ -81,11 +82,12 @@ const Post = (props) => {
         {renderImg()}
         {renderVideo()}
         <div className={styles.commentsUps}>
-          <span className={styles.ups}>▲ {props.ups} ▼</span>
+         
           <button className={styles.commentsButton} onClick={handleOnClick}>
             <img src={commentsLogo} />
             <span>{props.numComments}</span>
           </button>
+          <span className={styles.ups}>▲ {props.ups} ▼</span>
         </div>
         {toggleSwitch && renderComments()}
       </article>

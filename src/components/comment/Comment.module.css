@@ -24,13 +24,51 @@
     margin-left: 10px;
 }
 
+.timeAgo {
+    opacity: 0.8;
+    margin: 10px;
+}
+
 .comment p {
     margin: 10px;
     opacity: 0.8;
     word-break: break-all;
 }
 
-.comment span {
-    opacity: 0.8;
-    margin: 10px ;
+.ups {
+    padding: 10px;
+    opacity: 0.9
+}
+
+.repliesButton{
+    background-color: #353535;
+    color: white;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    margin: 10px 0px 0px 5px;
+}
+
+.repliesButton:hover {
+    cursor: pointer;
+    background-color: #4e4e4e;
+    outline: 1px solid black;
+    transition: background-color .1s;
+}
+
+.repliesButton:active {
+    background-color: #454545;
+    outline: none;
+}
+
+.repliesAmount {
+    padding: 10px;
+    opacity: 0.6;
+}
+
+.replies {
+    margin-left: 30px;
+    margin-top: 20px;
+    border-left: 1px solid black;
 }

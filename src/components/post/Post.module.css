@@ -29,17 +29,16 @@
 }
 
 .post h1 {
-    padding: 20px 0px 0px 10px;
+    padding: 20px 0px 0px 00px;
     font-size: 1.75rem;
 }
 
 .description {
-    margin: 30px;
+    margin: 30px 0px;
     word-break: break-all;
 }
 
 .post img {
-    max-width: 600px;
     border-radius: 10px;
 }
 
@@ -52,18 +51,18 @@
 
 .commentsUps {
     display: flex;
+    justify-content: start;
     padding-top: 10px;
 }
 
 .ups {
-    border : 2px solid black;
-    width: 100px;
+    font-size: 1.2rem;
     border-radius: 15px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px 30px 0px 0px;
+    margin-left: 30px;
 }
 
 .commentsButton {
@@ -74,10 +73,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
     color: white;
     padding: 20px;
     font-size: 1rem;
+    background-color: #353535;
 }
 
 .commentsButton img {

@@ -1,0 +1,23 @@
+.reply {
+    padding-left: 20px;
+}
+
+.reply h3 {
+    padding: 0px 0px 0px 10px;
+    font-size: 1.1rem;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+}
+
+.author span {
+    opacity: 0.5;
+}
