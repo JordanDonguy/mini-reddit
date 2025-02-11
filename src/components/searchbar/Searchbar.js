@@ -13,7 +13,7 @@ const Searchbar = () => {
 
     function handleOnClick() {
       if (searchTerm) {
-        dispatch(loadingPosts(searchTerm))
+        dispatch(loadingPosts(`/r/${searchTerm}`))
       } else {
         dispatch(loadingPosts('popular'))
       }

@@ -1,0 +1,21 @@
+.subreddit {
+    box-sizing: border-box;
+    padding: 30px 0px 10px 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}
+
+.subreddit button {
+    background-color: transparent;
+    border: none;
+    text-align: start;
+    color: white;
+    font-size: 1.25rem;
+    width: 90%;
+}
+
+.subreddit button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}

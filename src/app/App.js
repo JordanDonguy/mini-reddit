@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import redditLogo from '../data/reddit-logo.png';
 import Searchbar from '../components/searchbar/Searchbar';
 import PostsList from '../components/postsList/PostsList';
+import SubredditsLists from '../components/subredditsList/SubredditsLists';
 
 function App() {
   return (
@@ -16,8 +17,10 @@ function App() {
           <Searchbar />
         </div>
       </header>
-      <div>
+      <div className={styles.main}>
+      <SubredditsLists />
         <PostsList />
+        
       </div>
     </div>
   );

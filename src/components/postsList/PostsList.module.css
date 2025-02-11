@@ -1,8 +1,7 @@
 .postsList {
     color: white;
-    padding-top: 100px;
-    padding-left: 20%;
-    position: relative;
+    padding-top: 80px;
+    width: 68%
 }
 
 .loadingGifContainer {
