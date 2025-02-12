@@ -15,6 +15,7 @@
     width: 20px;
     height: 20px;
     padding: 0px;
+    border-radius: 10px;
 }
 
 .name {
@@ -22,10 +23,16 @@
     color: white;
     font-size: 1rem;
     margin-left: 10px;
+    margin-right: 15px;
+    max-width: 50%;
+    word-break: break-all;
+}
+
+.author span {
+    opacity: 0.5;
 }
 
 .timeAgo {
-    opacity: 0.8;
     margin: 10px;
 }
 

@@ -10,19 +10,22 @@ const Post = (props) => {
   const dispatch = useDispatch();
   const timeAgo = moment.unix(props.utc).fromNow();
 
-  const renderImg = () => {
+  const renderImgAndVideo = () => {
     if (props.description) {
       return <p className={styles.description}>{props.description}</p>
-    } else {
-      return <img src={props.url} alt='' className={styles.description} />
-    }
-  }
-  const renderVideo = () => {
-    if (props.isVideo) {
-      return <video controls className={styles.video} >
-        <source src={props.video.reddit_video.scrubber_media_url} type="video/mp4" />
-      </video>
-    }
+    } else if (props.isVideo) {
+      return (
+        <div className={styles.container}>
+          <video controls className={styles.video} >
+            <source src={props.video.reddit_video.fallback_url} type="video/mp4" />
+          </video>
+        </div>
+      )} else {
+      return (
+        <div className={styles.container}>
+          <img src={props.url} alt='' />
+        </div>
+      )}
   }
 
   const [toggleSwitch, setToggleSwitch] = useState(false);
@@ -39,7 +42,7 @@ const Post = (props) => {
   function handleOnClick() {
     if (!toggleSwitch) {
       setToggleSwitch(true)
-      fetchComments().then(function(result) {
+      fetchComments().then(function (result) {
         setComment(result);
       })
     } else {
@@ -59,7 +62,7 @@ const Post = (props) => {
               body={com.body}
               author={com.author}
               id={com.id}
-              key = {com.id}
+              key={com.id}
               ups={com.ups}
               utc={com.created_utc}
               replies={com.replies}
@@ -79,10 +82,9 @@ const Post = (props) => {
           <span>- {timeAgo}</span>
         </div>
         <h1>{props.title}</h1>
-        {renderImg()}
-        {renderVideo()}
+        {renderImgAndVideo()}
         <div className={styles.commentsUps}>
-         
+
           <button className={styles.commentsButton} onClick={handleOnClick}>
             <img src={commentsLogo} />
             <span>{props.numComments}</span>

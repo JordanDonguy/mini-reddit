@@ -37,3 +37,23 @@ input::placeholder {
     background-color: #bfbfbf;
     transition: background-color .1s;
 }
+
+@media only screen and (max-width: 400px) {
+    .search {
+        width: 180px;
+    }
+
+    .button {
+        right: calc(4vw + 190px);
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .search {
+        width: 150px;
+    }
+
+    .button {
+        right: calc(4vw + 160px);
+    }
+}

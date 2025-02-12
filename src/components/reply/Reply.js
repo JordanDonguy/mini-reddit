@@ -7,12 +7,15 @@ const Reply = (props) => {
 
     function renderTimeAgo() {
         if (timeAgo !== 'Invalid date') {
-            return <span>- {timeAgo}</span>
-        }
+            return (
+            <div>
+                <span>-</span>
+                <span>{timeAgo}</span>
+            </div>
+        )}
     }
 
     function renderImg() {
-        if (timeAgo !== 'Invalid date') {
             return (
             <img
               src={`https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png`}
@@ -20,6 +23,11 @@ const Reply = (props) => {
               className={styles.avatar}
             />
             )
+    }
+
+    function answerDeleted() {
+        if (timeAgo === 'Invalid date') {
+            return <span>Answer deleted</span>
         }
     }
 
@@ -27,6 +35,7 @@ const Reply = (props) => {
     <div className={styles.reply}>
         <div className={styles.author}>
             {renderImg()}
+            {answerDeleted()}
             <h3>{props.author}</h3>
             {renderTimeAgo()}
         </div>

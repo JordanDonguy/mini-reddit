@@ -21,16 +21,17 @@ const Comment = (props) => {
     function renderReplies() {
         if (replies) {
             return (
-            <div className={styles.replies}>
-                {props.replies.data.children.map((reply) => 
-                <Reply
-                 author={reply.data.author}
-                 description={reply.data.body}
-                 utc={reply.data.created_utc}
-                 key={reply.data.id}
-                />)}
-            </div>
-            )} else {
+                <div className={styles.replies}>
+                    {props.replies.data.children.map((reply) =>
+                        <Reply
+                            author={reply.data.author}
+                            description={reply.data.body}
+                            utc={reply.data.created_utc}
+                            key={reply.data.id}
+                        />)}
+                </div>
+            )
+        } else {
             return (
                 <div className={styles.loadingGifContainer}>
                     <img src={loadingGIF} alt='loadingGIF' className={styles.loadingGIF} />
@@ -51,22 +52,43 @@ const Comment = (props) => {
         }
     };
 
-  return (
-    <div className={styles.comment}>
-        <div className={styles.author}>
-            <img
-              src={`https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png`}
-              alt={`Avatar`}
-              className={styles.avatar}
-            />
-            <h3 className={styles.name}>{props.author}</h3>
-            <span className={styles.timeAgo}>- {timeAgo}</span>
+    const timeAgoValid = timeAgo !== 'Invalid date'
+
+    function renderTimeAgo() {
+        if (timeAgoValid) {
+            return (
+                <div>
+                    <span>-</span>
+                    <span className={styles.timeAgo}>{timeAgo}</span>
+                </div>
+            )
+        }
+    };
+
+    function renderComments() {
+        return (
+            <div className={styles.comment}>
+                <div className={styles.author}>
+                    <img
+                        src={`https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png`}
+                        alt={`Avatar`}
+                        className={styles.avatar}
+                    />
+                    <h3 className={styles.name}>{props.author}</h3>
+                    {renderTimeAgo()}
+                </div>
+                <p>{props.body}</p>
+                <span className={styles.ups}>▲ {props.ups} ▼</span>
+                {renderButton()}
+                {toggleSwitch && renderReplies()}
+            </div>
+        )
+    }
+
+    return (
+        <div>
+            {timeAgoValid && renderComments()}
         </div>
-        <p>{props.body}</p>
-        <span className={styles.ups}>▲ {props.ups} ▼</span>
-        {renderButton()}
-        {toggleSwitch && renderReplies()}
-    </div>
   )
 }
 

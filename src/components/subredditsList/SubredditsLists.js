@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSubreddits, isLoadingSubreddits, failedToLoadSubreddits, loadSubreddits } from '../../app/slices/subredditsSlice';
 import loadingGIF from '../../data/Loading.gif';
@@ -17,22 +17,29 @@ const SubredditsLists = () => {
 
     function renderSubreddits() {
         if (!isLoading && !failedToLoad) {
-            console.log(subreddits);
-            return subreddits.map((subreddit) => 
-                    <Subreddit
-                    key={subreddit.id} 
+            return subreddits.map((subreddit) =>
+                <Subreddit
+                    key={subreddit.id}
                     title={subreddit.title}
                     url={subreddit.url}
-                    />
+                />
             )
+        } else if (isLoading && !failedToLoad) {
+            return (
+                <div className={styles.loadingGifContainer}>
+                    <img src={loadingGIF} className={styles.loadingGIF} />
+                </div>
+            )
+        } else if (!isLoading && failedToLoad) {
+            return <h1 className={styles.error}>Error loading subreddits, try again in a few minutes...</h1>
         }
     }
 
-  return (
-    <div className={styles.subredditsList}>
-        {renderSubreddits()}
-    </div>
-  )
+    return (
+        <div className={styles.subredditsList}>
+            {renderSubreddits()}
+        </div>
+    )
 }
 
 export default SubredditsLists

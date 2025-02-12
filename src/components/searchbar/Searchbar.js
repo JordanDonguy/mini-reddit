@@ -15,7 +15,7 @@ const Searchbar = () => {
       if (searchTerm) {
         dispatch(loadingPosts(`/r/${searchTerm}`))
       } else {
-        dispatch(loadingPosts('popular'))
+        dispatch(loadingPosts('/r/popular'))
       }
     }
 

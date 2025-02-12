@@ -13,7 +13,7 @@ const PostsList = () => {
   const failedToLoad = useSelector(failedToLoadPosts);
 
   useEffect(() => {
-    dispatch(loadingPosts('popular'))
+    dispatch(loadingPosts('/r/popular'))
   }, []);
 
   function renderPosts() {
@@ -23,16 +23,16 @@ const PostsList = () => {
         id = {post.id}
         key = {post.id}
         title = {post.title}
-        subreddit={post.subreddit}
+        subreddit = {post.subreddit}
         author = {post.author}
         url = {post.url}
         numComments = {post.num_comments}
         ups = {post.ups}
         description = {post.selftext}
-        video= {post.media}
-        isVideo={post.is_video}
-        permalink={post.permalink}
-        utc={post.created_utc}
+        video = {post.media}
+        isVideo = {post.is_video}
+        permalink = {post.permalink}
+        utc = {post.created_utc}
         />
         )
     } else if (isLoading && !failedToLoad) {
@@ -42,7 +42,7 @@ const PostsList = () => {
         </div>
       )
     } else if (!isLoading && failedToLoad) {
-      return <h1>Error loading posts, try again in a few minutes</h1>
+      return <h1 className={styles.error}>Error loading posts, try again with a proper subreddit name or try again in a few minutes...</h1>
     }
   }
 
