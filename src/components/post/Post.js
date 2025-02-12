@@ -9,6 +9,7 @@ const Post = (props) => {
   const timeAgo = moment.unix(props.utc).fromNow();
 
   const renderImgAndVideo = () => {
+    const urlToCheck = props.url
     if (props.description) {
       return <p className={styles.description}>{props.description}</p>
     } else if (props.isVideo) {
@@ -18,12 +19,14 @@ const Post = (props) => {
             <source src={props.video.reddit_video.fallback_url} type="video/mp4" />
           </video>
         </div>
-      )} else {
+      )} else if (urlToCheck.includes('i.redd.it')) {
       return (
         <div className={styles.container}>
-          <img src={props.url} alt='' />
+          <img src={props.url} alt='post image' />
         </div>
-      )}
+      )} else {
+        return <br></br>
+      }
   }
 
   const [toggleSwitch, setToggleSwitch] = useState(false);

@@ -47,21 +47,30 @@
     opacity: 0.9
 }
 
-.repliesButton{
+.repliesFunction {
+    display: flex;
+    align-items: center;
+    margin: 10px 0px 0px 5px;
+}
+
+.repliesButton {
     background-color: #353535;
     color: white;
     border: 1px solid black;
     border-radius: 30px;
     width: 30px;
     height: 30px;
-    margin: 10px 0px 0px 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.15rem;
 }
 
-.repliesButton:hover {
-    cursor: pointer;
-    background-color: #4e4e4e;
-    outline: 1px solid black;
-    transition: background-color .1s;
+@media (hover: hover) {
+    .repliesButton:hover {
+        cursor: pointer;
+        background-color: #4e4e4e;
+        outline: 1px solid black;
+        transition: background-color .1s;
+    }
 }
 
 .repliesButton:active {

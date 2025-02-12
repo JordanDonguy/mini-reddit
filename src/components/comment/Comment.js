@@ -44,7 +44,7 @@ const Comment = (props) => {
         if (props.replies) {
             const repliesArray = props.replies.data.children;
             return (
-                <div>
+                <div className={styles.repliesFunction}>
                     <button onClick={handleOnClick} className={styles.repliesButton}>+</button>
                     <span className={styles.repliesAmount}>{repliesArray.length > 1 ? `${repliesArray.length} more answers` : '1 more answer'}</span>
                 </div>

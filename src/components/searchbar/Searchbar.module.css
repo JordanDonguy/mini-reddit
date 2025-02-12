@@ -32,10 +32,12 @@ input::placeholder {
     opacity: 60%;
 }
 
-.button:hover {
-    cursor: pointer;
-    background-color: #bfbfbf;
-    transition: background-color .1s;
+@media (hover: hover) {
+    .button:hover {
+        cursor: pointer;
+        background-color: #bfbfbf;
+        transition: background-color .1s;
+    }
 }
 
 @media only screen and (max-width: 400px) {
