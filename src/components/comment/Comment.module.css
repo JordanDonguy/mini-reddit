@@ -39,7 +39,7 @@
 .comment p {
     margin: 10px;
     opacity: 0.8;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .ups {
@@ -87,4 +87,10 @@
     margin-left: 30px;
     margin-top: 20px;
     border-left: 1px solid black;
+}
+
+@media only screen and (max-width: 700px) {
+    .replies {
+        margin-left: 19px;
+    }
 }

@@ -6,7 +6,7 @@
     padding: 0px 5px 0px 10px;
     font-size: 1.1rem;
     max-width: 50%;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .author {

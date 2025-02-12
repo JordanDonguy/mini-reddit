@@ -1,6 +1,6 @@
 .subreddit {
     box-sizing: border-box;
-    padding: 30px 0px 10px 30px;
+    padding: 30px 0px 10px 2vw;
     display: flex;
     flex-direction: column;
     width: 100%
@@ -13,9 +13,16 @@
     color: white;
     font-size: 1.25rem;
     width: 90%;
+    word-break: break-word;
 }
 
 .subreddit button:hover {
     cursor: pointer;
     opacity: 0.7;
+}
+
+@media only screen and (max-width: 1000px) {
+    .subreddit {
+        padding: 30px 0px 10px 10px;
+    }
 }
