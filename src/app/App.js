@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './App.module.css';
 import redditLogo from '../data/reddit-logo.png';
 import Searchbar from '../components/searchbar/Searchbar';
@@ -6,6 +6,23 @@ import PostsList from '../components/postsList/PostsList';
 import SubredditsLists from '../components/subredditsList/SubredditsLists';
 
 function App() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  function renderSubredditsList() {
+    if (windowWidth >= 900) {
+      return <SubredditsLists />
+    }
+  };
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth)
+    };
+    window.addEventListener('resize', handleResize)
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize)
+  }, []);
+
   return (
     <div className={styles.App}>
       <header className={styles.header}>
@@ -18,9 +35,8 @@ function App() {
         </div>
       </header>
       <div className={styles.main}>
-      <SubredditsLists />
+        {renderSubredditsList()}
         <PostsList />
-        
       </div>
     </div>
   );
