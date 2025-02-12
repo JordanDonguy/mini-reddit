@@ -46,7 +46,7 @@ const Comment = (props) => {
             return (
                 <div>
                     <button onClick={handleOnClick} className={styles.repliesButton}>+</button>
-                    <span className={styles.repliesAmount}>{repliesArray.length} more answers</span>
+                    <span className={styles.repliesAmount}>{repliesArray.length > 1 ? `${repliesArray.length} more answers` : '1 more answer'}</span>
                 </div>
             )
         }
