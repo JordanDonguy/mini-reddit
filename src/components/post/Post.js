@@ -22,7 +22,7 @@ const Post = (props) => {
       )} else if (urlToCheck.includes('i.redd.it')) {
       return (
         <div className={styles.container}>
-          <img src={props.url} alt='post image' />
+          <img src={props.url} alt='post' />
         </div>
       )} else {
         return <br></br>
