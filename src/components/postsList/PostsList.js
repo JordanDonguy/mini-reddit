@@ -14,7 +14,7 @@ const PostsList = () => {
 
   useEffect(() => {
     dispatch(loadingPosts('/r/popular'))
-  }, []);
+  }, [dispatch]);
 
   function renderPosts() {
     if (!isLoading && !failedToLoad) {
@@ -38,7 +38,7 @@ const PostsList = () => {
     } else if (isLoading && !failedToLoad) {
       return (
         <div className={styles.loadingGifContainer}>
-          <img src={loadingGIF} className={styles.loadingGIF}/>
+          <img src={loadingGIF} className={styles.loadingGIF} alt='loading Gif' />
         </div>
       )
     } else if (!isLoading && failedToLoad) {

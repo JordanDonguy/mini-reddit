@@ -27,7 +27,7 @@ function App() {
     <div className={styles.App}>
       <header className={styles.header}>
         <div className={styles.title}>
-          <img src={redditLogo} className={styles.redditLogo} />
+          <img src={redditLogo} className={styles.redditLogo} alt='reddit logo' />
           <h1>Mini Reddit</h1>
         </div>
         <div className={styles.searchbar}>

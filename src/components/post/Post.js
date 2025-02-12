@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import styles from './Post.module.css';
 import commentsLogo from '../../data/comments-logo.png';
-import { useDispatch, useSelector } from 'react-redux';
 import loadingGIF from '../../data/Loading.gif';
 import Comment from '../comment/Comment';
 import moment from 'moment';
 
 const Post = (props) => {
-  const dispatch = useDispatch();
   const timeAgo = moment.unix(props.utc).fromNow();
 
   const renderImgAndVideo = () => {
@@ -86,7 +84,7 @@ const Post = (props) => {
         <div className={styles.commentsUps}>
 
           <button className={styles.commentsButton} onClick={handleOnClick}>
-            <img src={commentsLogo} />
+            <img src={commentsLogo} alt='comments logo' />
             <span>{props.numComments}</span>
           </button>
           <span className={styles.ups}>▲ {props.ups} ▼</span>

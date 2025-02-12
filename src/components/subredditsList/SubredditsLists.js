@@ -13,7 +13,7 @@ const SubredditsLists = () => {
 
     useEffect(() => {
         dispatch(loadSubreddits())
-    }, []);
+    }, [dispatch]);
 
     function renderSubreddits() {
         if (!isLoading && !failedToLoad) {
@@ -27,7 +27,7 @@ const SubredditsLists = () => {
         } else if (isLoading && !failedToLoad) {
             return (
                 <div className={styles.loadingGifContainer}>
-                    <img src={loadingGIF} className={styles.loadingGIF} />
+                    <img src={loadingGIF} className={styles.loadingGIF} alt='loading Gif' />
                 </div>
             )
         } else if (!isLoading && failedToLoad) {
