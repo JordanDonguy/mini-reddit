@@ -23,13 +23,15 @@ function App() {
     return () => window.removeEventListener('resize', handleResize)
   }, []);
 
+  function handleOnClick() {
+    window.scrollTo(0, 0)
+  }
+
   return (
     <div className={styles.App}>
       <header className={styles.header}>
         <div className={styles.title}>
-          <a href='#'>
-          <img src={redditLogo} className={styles.redditLogo} alt='reddit logo' />
-          </a>
+          <img src={redditLogo} className={styles.redditLogo} onClick={handleOnClick} alt='reddit logo' />
           <h1>Mini Reddit</h1>
         </div>
         <div className={styles.searchbar}>
