@@ -1,46 +1,45 @@
-# Getting Started with Create React App and Redux
+# Mini Reddit
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## Description du projet
+Une version miniaturisé du site Reddit.com
 
-## Available Scripts
+## Fonctionnement 
+Cette mini version de Reddit permet d'afficher des posts ainsi que leurs commentaires en fonction du subreddit choisit.
+Par défaut, il sera affiché les posts populaires (/r/popular).
+La colonne de gauche de l'application permet de choisir un subreddit, mais on peut aussi utiliser la barre de recherche en haut à droite afin de rechercher le subreddit que l'on souhaite.
 
-In the project directory, you can run:
+Une fois que l'on a choisit un subreddit, l'appli va afficher les posts de ce subreddit avec les informations suivantes :
+- Le nom du subreddit
+- Le nom de l'auteur du post
+- Depuis combien de temps le post a été créé
+- Le titre du post
+- La description du post (image, vidéo ou texte)
+- Un bouton permettant d'afficher les commentaires. Le bouton affiche aussi le nombre de commentaires.
+- Le nombre de likes
 
-### `npm start`
+</br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+L'utilisateur peut ensuite choisir d'afficher les commentaires en appuyant sur le bouton associé.
+Chaque commentaire affichera :
+- Le nom de l'utilisateur
+- Depuis combien de temps le commentaire a été posté
+- Le texte du commentaire
+- Le nombres de réponses et un bouton permettant de les afficher
+- Le nombre de likes du commentaire
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+</br>
 
-### `npm test`
+Si l'on clique sur le bouton permettant d'afficher les réponses du commentaire, l'appli affichera les réponses du commentaire avec les informations suivantes :
+- Le nom de l'utilisateur
+- Depuis combien de temps la réponse a été postée
+- Le texte de la réponse
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+</br>
 
-### `npm run build`
+Afin de conserver un design minimaliste et simple, la colonne des subreddit ne sera pas affichée sur mobile, il sera donc seulement possible de rechercher un subreddit via la barre de recherche.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies utilisées
+Ce site web a été réalisé grâce aux Framework React et Redux du langage de programmation JavaScript.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Lien vers le site web
+Le site web est déployé à l'adresse suivante : [https://jordandonguy-minireddit.netlify.app](https://jordandonguy-minireddit.netlify.app)
