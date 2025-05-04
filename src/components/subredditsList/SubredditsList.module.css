@@ -9,6 +9,12 @@
     overflow: scroll;
     position: sticky;
     top: 100px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+.subredditsList::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
 }
 
 .loadingGifContainer {
