@@ -1,45 +1,65 @@
-# Mini Reddit
+# 📄 Mini Reddit
 
-## Description du projet
-Une version miniaturisé du site Reddit.com
+A simplified, lightweight clone of [Reddit.com](https://www.reddit.com), built to explore working with real data and modern web development tools.
 
-## Fonctionnement 
-Cette mini version de Reddit permet d'afficher des posts ainsi que leurs commentaires en fonction du subreddit choisit.
-Par défaut, il sera affiché les posts populaires (/r/popular).
-La colonne de gauche de l'application permet de choisir un subreddit, mais on peut aussi utiliser la barre de recherche en haut à droite afin de rechercher le subreddit que l'on souhaite.
+---
 
-Une fois que l'on a choisit un subreddit, l'appli va afficher les posts de ce subreddit avec les informations suivantes :
-- Le nom du subreddit
-- Le nom de l'auteur du post
-- Depuis combien de temps le post a été créé
-- Le titre du post
-- La description du post (image, vidéo ou texte)
-- Un bouton permettant d'afficher les commentaires. Le bouton affiche aussi le nombre de commentaires.
-- Le nombre de likes
+## 🧠 Project Overview
 
-</br>
+This **Mini Reddit** app lets you browse posts and their comments based on the selected subreddit.
 
-L'utilisateur peut ensuite choisir d'afficher les commentaires en appuyant sur le bouton associé.
-Chaque commentaire affichera :
-- Le nom de l'utilisateur
-- Depuis combien de temps le commentaire a été posté
-- Le texte du commentaire
-- Le nombres de réponses et un bouton permettant de les afficher
-- Le nombre de likes du commentaire
+By default, it displays popular posts from **/r/popular**.  
+You can explore other subreddits using:
+- 📂 The **left sidebar** (on desktop)
+- 🔍 The **search bar** in the top-right corner
 
-</br>
+---
 
-Si l'on clique sur le bouton permettant d'afficher les réponses du commentaire, l'appli affichera les réponses du commentaire avec les informations suivantes :
-- Le nom de l'utilisateur
-- Depuis combien de temps la réponse a été postée
-- Le texte de la réponse
+## ⚙️ How It Works
 
-</br>
+After selecting a subreddit, the app displays its posts with key information:
 
-Afin de conserver un design minimaliste et simple, la colonne des subreddit ne sera pas affichée sur mobile, il sera donc seulement possible de rechercher un subreddit via la barre de recherche.
+- 🏷️ Subreddit name  
+- ✍️ Post author  
+- ⏱️ Time since posted  
+- 📝 Post title and content (image, video, or text)  
+- 💬 Button to toggle comments (includes comment count)  
+- 👍 Number of upvotes  
 
-## Technologies utilisées
-Ce site web a été réalisé grâce aux Framework React et Redux du langage de programmation JavaScript.
+When the user clicks to view comments, each comment shows:
 
-## Lien vers le site web
-Le site web est déployé à l'adresse suivante : [https://jordandonguy-minireddit.netlify.app](https://jordandonguy-minireddit.netlify.app)
+- 👤 Comment author  
+- ⏳ Time since posted  
+- 💬 Comment text  
+- 🔁 Number of replies (with toggle button)  
+- 👍 Likes (upvotes)  
+
+If a comment has replies, clicking the reply toggle reveals:
+
+- 👤 Reply author  
+- ⏳ Time since posted  
+- 💬 Reply text  
+
+🧑‍💻 On **mobile devices**, the left sidebar is hidden to maintain a clean, minimalist design — subreddits can be searched using the top search bar.
+
+---
+
+## 🧰 Technologies Used
+
+Built using the following JavaScript frameworks and libraries:
+
+- ⚛️ **React**
+- 📦 **Redux**
+
+This project focuses on data fetching, dynamic routing, and user interaction patterns similar to a real-world app.
+
+---
+
+## 🔗 Live Demo
+
+Check it out here:  
+👉 [https://jordandonguy-minireddit.netlify.app](https://jordandonguy-minireddit.netlify.app)
+
+---
+
+Thanks for checking it out! Feel free to open an issue or reach out if you have suggestions or want to collaborate. 😊
