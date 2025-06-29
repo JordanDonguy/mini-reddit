@@ -18,7 +18,6 @@ const PostsList = () => {
 
   function renderPosts() {
     if (!isLoading && !failedToLoad) {
-      console.log(posts)
       return posts.map((post) => 
         <Post 
         id = {post.id}
