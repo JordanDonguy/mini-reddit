@@ -33,7 +33,7 @@ const Post = (props) => {
   const [comment, setComment] = useState();
 
   async function fetchComments() {
-    const API_ROOT = 'https://www.reddit.com';
+    const API_ROOT = 'https://api-mini-reddit.jordan-donguy.workers.dev';
     const response = await fetch(`${API_ROOT}${props.permalink}.json`);
     const json = await response.json();
 

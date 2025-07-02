@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const loadingPosts = createAsyncThunk('posts/loadingPosts', async(subreddit) => {
-    const API_ROOT = 'https://www.reddit.com';  
+    const API_ROOT = 'https://api-mini-reddit.jordan-donguy.workers.dev';  
     const response = await fetch(`${API_ROOT}${subreddit}/.json`);
     const json = await response.json();
 
