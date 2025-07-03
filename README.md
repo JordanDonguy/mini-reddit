@@ -58,7 +58,7 @@ This project focuses on data fetching, dynamic routing, and user interaction pat
 ## 🔗 Live Demo
 
 Check it out here:  
-👉 [https://jordandonguy-minireddit.netlify.app](https://jordandonguy-minireddit.netlify.app)
+👉 [https://mini-reddit.pages.dev](https://mini-reddit.pages.dev)
 
 ---
 
